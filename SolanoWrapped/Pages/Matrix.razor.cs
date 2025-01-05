@@ -3,7 +3,7 @@ using Microsoft.Extensions.Caching.Memory;
 using Microsoft.JSInterop;
 using System;
 
-namespace SolanoWrapped.Pages
+namespace CryptoAiPredictor.Pages
 {
     public partial class Matrix
     {
