@@ -1,0 +1,122 @@
+﻿body {
+    margin: 0;
+    overflow: hidden;
+    background: black;
+}
+
+.matrix {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: black;
+    color: green;
+    font-family: monospace;
+    white-space: nowrap;
+    overflow: hidden;
+    z-index: -1;
+}
+
+@keyframes matrix {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+.row {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    animation: matrix linear infinite;
+    animation-duration: calc(10s / var(--speed));
+}
+
+.char {
+    opacity: 0;
+    animation: fade 0.3s infinite;
+    animation-delay: calc(var(--char-index) * 0.05s);
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Center the search bar and button */
+.search-bar {
+    position: relative;
+    z-index: 1; /* Ensure it is in front of the matrix animation */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.input {
+    width: 320px;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2), inset 0 0 5px rgba(0, 0, 0, 0.5);
+    outline: none;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+    .input::placeholder {
+        color: rgba(255, 255, 255, 0.6);
+    }
+
+    .input:focus {
+        box-shadow: 0 0 15px rgba(0, 123, 255, 0.8), inset 0 0 10px rgba(0, 0, 0, 0.5);
+        transform: scale(1.05);
+    }
+
+.button {
+    padding: 12px 25px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(145deg, #007bff, #0056b3);
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.8);
+    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+    .button:hover {
+        background: linear-gradient(145deg, #0056b3, #003f8a);
+        box-shadow: 0 0 20px rgba(0, 123, 255, 1);
+        transform: scale(1.1);
+    }
+
+.loading-msg {
+    justify-content: center;
+    align-items: center;
+    z-index: 1; /* Ensure it is in front of the matrix animation */
+    color: white;
+    margin-top: 10px; /* Space between button and loading message */
+}
+
+.message {
+    margin-top: 10px;
+    color: white;
+    font-size: 1.2em;
+}

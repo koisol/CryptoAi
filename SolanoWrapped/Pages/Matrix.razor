@@ -1,0 +1,31 @@
+﻿@page "/matrix"
+@inject IJSRuntime JS
+
+
+
+<div class="matrix"></div>
+<h1 style="display:flex; justify-content:center; align-items: center; color:white; font-size:100px; font-family:Arial;">Crypto Ai Predictor</h1>
+<div class="search-bar">
+    <input type="text" onfocus="@Messageclear"
+           class="input"
+           @bind="TokenInput"
+           placeholder="Enter cryptocurrency name (e.g., Bitcoin)" />
+    <button class="button" @onclick="Search">Predict</button>
+    <div class="loading-msg">
+        @if (isLoading) 
+        { 
+         <p>Please while we predict...!</p>  
+        }
+    </div>
+    @if (!string.IsNullOrEmpty(displayedMessage)) 
+     { 
+        <div class="message"> <p>@displayedMessage</p> 
+        </div> 
+     }
+</div
+
+
+
+
+
+
